@@ -1,12 +1,11 @@
-/** A library of operations on arrays of characters (char values).
- *  The library also features a string comparison method. */
+
 public class ArrCharOps {
     public static void main(String[] args) {
         String str = "clearly";
         char[] arr1 = {'c','l','e','a','r','l','y'};
         char[] arr2 = {'U','n','d','e','r','s','t', 'o', 'o', 'd'};
-        System.out.println(str);  // Prints the string
-        println(arr1);            // Prints an array of characters
+        System.out.println(str);  
+        println(arr1);           
         System.out.println(charAt(arr1,2));      
         System.out.println(indexOf(arr1,'l'));  
         System.out.println(indexOf(arr1,'l',3)); 
