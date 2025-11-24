@@ -85,8 +85,8 @@ public class ArrCharOps {
         for (int i = 0; i < arr1.length; i++) {
             connect[i] = arr1[i];
         }
-        for (int l = 0; l < arr2.length; l++) {
-            connect[arr1.length + l] = arr2[l];
+        for (int k = 0; k < arr2.length; k++) {
+            connect[arr1.length + k] = arr2[k];
         }
         return  connect;
     }
