@@ -19,39 +19,39 @@ public class MyString {
     /** Returns the lowercase version of the given string. */
     public static String lowerCase(String str) {
        String newStr = "";
+       char ch;
         for (int i = 0; i < str.length(); i++) {
-            newStr += str.indexOf(i) + 32;
+            ch  = str.charAt(i);
+            if (ch >= 'A' && ch <= 'Z')
+                newStr += (char)(ch +32);
+            else
+                newStr += ch;
         }
         return newStr;
     }
 
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
-        int count = 0;
-        int index1 = 0;
-        int index2 = 0;
-        if (str2.length()>str1.length())
+        int l1 = str1.length();
+        int l2 = str2.length();
+        boolean good ;
+        if (l2 == 0)
             return false;
-        else {
-            while (count != str2.length()){
-                if (index1 < str1.length()){
-                     if (str1.indexOf(index1) == str2.indexOf(index2)){
-                    count++;
-                    index1++;
-                    index2++;
+        if (l2>l1)
+            return false;
+        for (int i = 0; i <= l1-l2; i++) {
+            good = true;
+
+                for (int m = 0; m < l2; m++) {
+                    if (str1.charAt(i+m)!=str2.charAt(m)){
+                        good = false;
+                        break;
+                    }
                 }
-                 else   {
-                    count = 0;
-                    index2 = 0;
-                    index1++;
-                  }
-            }   
-           }
-        }
-        if (count == str2.length())
-            return true;
-        else{
+                if(good)
+                    return true;
+            }
             return false;
         }
-    }
+       
 }
