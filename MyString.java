@@ -36,7 +36,7 @@ public class MyString {
         int l2 = str2.length();
         boolean good ;
         if (l2 == 0)
-            return false;
+            return true;
         if (l2>l1)
             return false;
         for (int i = 0; i <= l1-l2; i++) {
