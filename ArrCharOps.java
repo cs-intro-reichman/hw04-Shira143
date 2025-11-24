@@ -115,6 +115,8 @@ public class ArrCharOps {
     }
 
     public static int compareTo(String str1, String str2) {            
+        if ((str1 == null) || (str2 == null ) || (str1.length() == 0) || (str2.length() == 0))
+            return -2;
         int minLegnth= Math.min(str1.length(), str2.length());
         char letter1;
         char letter2;
