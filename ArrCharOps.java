@@ -88,10 +88,11 @@ public class ArrCharOps {
     }
     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
-        int newLenght = endIndex - beginIndex;
-         char[] newArr = new char[newLenght];
+        
         if (beginIndex < 0 || endIndex > arr.length || beginIndex > endIndex)
             return new char[0];
+        int newLenght = endIndex - beginIndex;
+         char[] newArr = new char[newLenght];
         for (int i = 0; i < newLenght; i++) {
             newArr[i] = arr[beginIndex + i];
         }
