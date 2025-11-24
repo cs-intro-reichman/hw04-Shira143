@@ -34,7 +34,7 @@ public class ArrCharOps {
 
 
     public static char charAt(char[] arr, int index) {        
-        return (arr[index]);
+        return arr[index];
     }
 
 
