@@ -105,11 +105,11 @@ public class ArrCharOps {
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
         int newLenght = endIndex - beginIndex;
+         char[] newArr = new char[newLenght];
         if (beginIndex < 0 || endIndex > arr.length || beginIndex > endIndex)
             return new char[0];
-        char[] newArr = new char[newLenght];
         for (int i = 0; i < newLenght; i++) {
-            newArr[i] = arr[beginIndex + 1];
+            newArr[i] = arr[beginIndex + i];
         }
         return newArr;
     }
@@ -127,9 +127,9 @@ public class ArrCharOps {
         if (arr.length == 0)
             return 0;        
         for (int i = 0; i < arr.length; i++) {
-            int ex = arrLenght -1-i;
+            int ex = (arrLenght-1-i);
             sum += (long)arr[i] * Math.round(Math.pow(7, ex));
-            arrLenght --;
+
         }        
         return sum;
     }
