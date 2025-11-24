@@ -78,18 +78,10 @@ public class ArrCharOps {
      *  If no such character is found, returns -1.
      */
     public static int lastIndexOf(char[] arr, char ch) {
-        int newPlace = -1;
-        int firstPlace = indexOf(arr, ch);
-        for (int i = firstPlace + 1; i < arr.length; i++) {
+        for (int i = arr.length-1; i >=0; i--) {
             if (arr[i] == ch)
-                newPlace = arr[i];
+                return i;
         }
-        if (newPlace > firstPlace)
-            return newPlace;
-        else if (newPlace == -1)
-        return -1;
-        else if (firstPlace == newPlace)
-            return firstPlace;
         return -1;
     }
 
@@ -100,8 +92,8 @@ public class ArrCharOps {
         for (int i = 0; i < arr1.length; i++) {
             connect[i] = arr1[i];
         }
-        for (int i = arr1.length; i < arr2.length; i++) {
-            connect[i] = arr2[i];
+        for (int i = 0; i < arr2.length; i++) {
+            connect[arr1.length + i] = arr2[i];
         }
         return  connect;
     }
@@ -112,9 +104,12 @@ public class ArrCharOps {
      *  characters containing the characters "urge".
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
-        char[] newArr = new char[((arr.length-1)-beginIndex)];
-        for (int i = beginIndex; i < arr.length-1; i++) {
-            newArr[i] = arr[i];
+        int newLenght = endIndex - beginIndex;
+        if (beginIndex < 0 || endIndex > arr.length || beginIndex > endIndex)
+            return new char[0];
+        char[] newArr = new char[newLenght];
+        for (int i = 0; i < newLenght; i++) {
+            newArr[i] = arr[beginIndex + 1];
         }
         return newArr;
     }
@@ -128,18 +123,14 @@ public class ArrCharOps {
      */
     public static long hashCode(char[] arr) {
         int arrLenght = arr.length;
-        double num = Math.pow(7, (arrLenght-1));
-        long sum =0;
-       while (arrLenght!=0) {
-        for (int i = 0; i < arr.length-1; i++) {
-    
-            sum += arr[i] * num;
+       long sum =0;
+        if (arr.length == 0)
+            return 0;        
+        for (int i = 0; i < arr.length; i++) {
+            int ex = arrLenght -1-i;
+            sum += (long)arr[i] * Math.round(Math.pow(7, ex));
             arrLenght --;
-        }
-       if (arrLenght == 0 )
-        sum += arr[arr.length-1];
-        }
-        
+        }        
         return sum;
     }
 
@@ -169,32 +160,23 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
-        char letter;
-         for (int i = 0; i <str1.length() ; i++) {
-            if (str1.indexOf(i) != str2.indexOf(i)){
-                if (str1.indexOf(i) < str2.indexOf(i))
-                   return -1;
-                else if (str1.indexOf(i) > str2.indexOf(i))
-                    return 1;
-            }
-       }
-        if (str1.length()<str2.length())
-        {
-           boolean value1;
-            for (int i = 0; i < str1.length(); i++) {
-                if (str1.indexOf(i) != str2.indexOf(i))
-                    value1 = false;
-            }
+       int minLegnth= Math.min(str1.length(), str2.length());
+        char letter1;
+        char letter2;
+        for (int i = 0; i < minLegnth; i++) {
+            letter1 = str1.charAt(i);
+            letter2 = str2.charAt(i);
+        
+        if (letter1 < letter2)
             return -1;
-        }
-        else if (str1.length()>str2.length()){
-            boolean value2;
-            for (int i = 0; i < str2.length(); i++) {
-                if (str1.indexOf(i) != str2.indexOf(i))
-                    value2 = false;
-            }
+        else if (letter1 > letter2)
             return 1;
-        }
-        return 0;
+    }
+        if (str1.length() < str2.length())
+            return -1;
+        else if (str1.length() > str2.length())
+            return 1;
+
+    return 0;
     }
 }
