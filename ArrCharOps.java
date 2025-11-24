@@ -114,24 +114,29 @@ public class ArrCharOps {
         return sum;
     }
 
-    public static int compareTo(String str1, String str2) {
-       int minLegnth= Math.min(str1.length(), str2.length());
+    public static int compareTo(String str1, String str2) {            
+        int minLegnth= Math.min(str1.length(), str2.length());
         char letter1;
         char letter2;
+        
         for (int i = 0; i < minLegnth; i++) {
             letter1 = str1.charAt(i);
             letter2 = str2.charAt(i);
         
-        if (letter1 < letter2)
-            return -1;
-        else if (letter1 > letter2)
-            return 1;
-    }
+            if (letter1!=letter2){
+                if (letter1 < letter2)
+                    return -1;
+                else if (letter1 > letter2)
+                    return 1;
+            }
+        }
+        
         if (str1.length() < str2.length())
             return -1;
         else if (str1.length() > str2.length())
             return 1;
-
-    return 0;
+        
+        return 0;
+    
     }
 }
