@@ -123,11 +123,10 @@ public class ArrCharOps {
             letter1 = str1.charAt(i);
             letter2 = str2.charAt(i);
         
-            if (letter1!=letter2){
-                if (letter1 < letter2)
-                    return -1;
-                else if (letter1 > letter2)
-                    return 1;
+            if (letter1 < letter2) {
+                return -1;
+            } else if (letter1 > letter2) {
+                return 1;
             }
         }
         
